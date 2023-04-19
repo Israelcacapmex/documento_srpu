@@ -1,30 +1,30 @@
 <link rel="stylesheet" type="text/css" href="../estilos.css" media="screen" />
 
-<h4 style="text-align: center;">Hoja Membretada Municipio&nbsp;</h4>
+<h4 style="text-align: right; font-family: Arial; ">Hoja Membretada Municipio&nbsp;</h4>
 
-<h4 style="text-align: left;">Oficio No. {{num}}/2023 Asunto: Solicitud de Inscripci&oacute;n del Financiamiento otorgado por BANCO Lugar y fecha: {{fecha}}</h4>
+<h4 style="text-align: right; font-family: Arial; ">Oficio No. {{num}}/2023 <br/> <strong> Asunto:</strong> Solicitud de Inscripci&oacute;n del Financiamiento otorgado por BANCO <br/>Lugar y fecha: {{fecha}}</h4>
 
-<h4>LIC. CARLOS ALBERTO GARZA IBARRA SECRETARIO DE FINANZAS Y TESORERO GENERAL DEL GOBIERNO DEL ESTADO DE NUEVO LE&Oacute;N P R E S E N T E.-</h4>
+<h4 style="text-align: left; font-family: Arial; ">LIC. {{servidorpublico}}  <br/> {{cargo}}<br/> P R E S E N T E.-</h4>
 
-<p>El/La suscrito(a) [******] en mi car&aacute;cter de {{cargo}} del {{organismo}} de Nuevo Le&oacute;n, mismo que acredito mediante la presentaci&oacute;n de copia certificada de(la) nombramiento e identificaci&oacute;n/pasaporte oficial emitido(a) por el(la) Instituto Nacional Electoral/Secretaria de Relaciones Exteriores, por medio de la presente solicito la inscripci&oacute;n del Elija un elemento., celebrado en {{fechacontrato}}, entre el [**********] y {{InstitucionBancaria}}, por la cantidad de hasta {{monto}}, en el Registro de Obligaciones y Empr&eacute;stitos del Estado de Nuevo Le&oacute;n a cargo de la Direcci&oacute;n de Deuda P&uacute;blica de la Subsecretaria de Egresos del Estado de Nuevo Le&oacute;n, de conformidad con los art&iacute;culos 8, fracci&oacute;n XXI y 12, fracci&oacute;n XIIII, del Reglamento Interior de la Secretaria de Finanzas y Tesorer&iacute;a General del Estado; articulo 128, fracci&oacute;n IX, de la Ley de Administraci&oacute;n Financiera para el Estado de Nuevo Le&oacute;n s&eacute;ptimo transitorio, de la Ley de Ingresos del Estado de Nuevo Le&oacute;n para el Ejercicio Fiscal 2023, Cap&iacute;tulo I, del T&iacute;tulo Tercero de la Ley de Disciplina Financiera de las Entidades Federativas y los Municipios (en lo sucesivo la Ley), y articulo 25, del Reglamento del Registro P&uacute;blico &Uacute;nico de Financiamientos y Obligaciones de Entidades Federativas y Municipios (en lo sucesivo el Reglamento).</p>
+<p style="letter-spacing: 1px;  font-family: Arial;">El/La suscrito(a) {{servidorpublico}} en mi car&aacute;cter de {{cargo}} del {{organismo}} de Nuevo Le&oacute;n, mismo que acredito mediante la presentaci&oacute;n de copia certificada de(la) nombramiento e identificaci&oacute;n/pasaporte oficial emitido(a) por el(la) Instituto Nacional Electoral/Secretaria de Relaciones Exteriores, por medio de la presente solicito la inscripci&oacute;n del {{contrato}}., celebrado en {{fechacontrato}}, entre el {{tipoEntePublicoObligado}} y {{InstitucionBancaria}}, por la cantidad de hasta {{monto}}, en el Registro de Obligaciones y Empr&eacute;stitos del Estado de Nuevo Le&oacute;n a cargo de la Direcci&oacute;n de Deuda P&uacute;blica de la Subsecretaria de Egresos del Estado de Nuevo Le&oacute;n, de conformidad con los art&iacute;culos 8, fracci&oacute;n XXI y 12, fracci&oacute;n XIIII, del Reglamento Interior de la Secretaria de Finanzas y Tesorer&iacute;a General del Estado; articulo 128, fracci&oacute;n IX, de la Ley de Administraci&oacute;n Financiera para el Estado de Nuevo Le&oacute;n s&eacute;ptimo transitorio, de la Ley de Ingresos del Estado de Nuevo Le&oacute;n para el Ejercicio Fiscal 2023, Cap&iacute;tulo I, del T&iacute;tulo Tercero de la Ley de Disciplina Financiera de las Entidades Federativas y los Municipios (en lo sucesivo la Ley), y articulo 25, del Reglamento del Registro P&uacute;blico &Uacute;nico de Financiamientos y Obligaciones de Entidades Federativas y Municipios (en lo sucesivo el Reglamento).</p>
 
-<h4><strong>Las caracter&iacute;sticas de la Obligaci&oacute;n son las siguientes:</strong></h4>
+<h4 style="text-align: left; font-family: Arial; "><strong>Las caracter&iacute;sticas de la Obligaci&oacute;n son las siguientes:</strong></h4>
 
-<h4><strong>INFORMACI&Oacute;N DEL FINANCIAMIENTO</strong></h4>
+<h4 style="text-align: left; font-family: Arial; "><strong>INFORMACI&Oacute;N DEL FINANCIAMIENTO</strong></h4>
 
-<table style="border-collapse: collapse; width: 87.9101%; height: 90px;" border="1">
+<table style="border-collapse: collapse; width: 87.9101%; height: 90px; letter-spacing: 1px;  font-family: Arial; " border="1">
 <tbody>
 <tr style="height: 14px;">
 <td style="width: 50%; height: 14px;">Ente p&uacute;blico obligado</td>
-<td style="width: 50%; height: 14px;">{{entepublicobligado}}</td>
+<td style="width: 50%; height: 14px;">{{entepublicoobligado}}</td>
 </tr>
 <tr style="height: 12px;">
 <td style="width: 50%; height: 12px;">Obligado solidario/aval</td>
-<td style="width: 50%; height: 12px;">(N/A Cortos Plazos)</td>
+<td style="width: 50%; height: 12px;">{{obligadoSolidarioAval}}</td>
 </tr>
 <tr style="height: 10px;">
-<td style="width: 50%; height: 10px;">Fecha de Vencimiento</td>
-<td style="width: 50%; height: 10px;">{{fechavencimiento}}</td>
+<td style="width: 50%; height: 10px;">Tipo de Instrumento Jurídico </td>
+<td style="width: 50%; height: 10px;">{{contrato}}</td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Fecha de contrataci&oacute;n</td>
@@ -40,8 +40,8 @@
 </tr>
 </tbody>
 </table>
-<h4><strong>CARACTER&Iacute;STICAS DEL FINANCIAMIENTO</strong></h4>
-<table style="border-collapse: collapse; width: 100%; height: 234px;" border="1">
+<h4 style="text-align: left; font-family: Arial; "><strong>CARACTER&Iacute;STICAS DEL FINANCIAMIENTO</strong></h4>
+<table style="border-collapse: collapse; width: 87.9101%; height: 90px; letter-spacing: 1px;  font-family: Arial; " border="1">
 <tbody>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Destino</td>
@@ -61,7 +61,7 @@
 </tr>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Comisiones</td>
-<td style="width: 50%; height: 18px;">{{comisiones}}</td>
+<td style="width: 50%; height: 18px;">{{tipocomisiones}}</td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Gastos Adicionales</td>
@@ -73,7 +73,7 @@
 </tr>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Esquema de Amortizacion</td>
-<td style="width: 50%; height: 18px;">M/MCPG/PEP</td>
+<td style="width: 50%; height: 18px;">{{periodopago}}</td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Mecanismo de Amortizaci&oacute;n</td>
@@ -97,8 +97,8 @@
 </tr>
 </tbody>
 </table>
-<h4><strong>INFORMACI&Oacute;N DE LA AUTORIZACI&Oacute;N</strong></h4>
-<table style="border-collapse: collapse; width: 100%; height: 54px;" border="1">
+<h4 style="text-align: left; font-family: Arial; "><strong>INFORMACI&Oacute;N DE LA AUTORIZACI&Oacute;N</strong></h4>
+<table style="border-collapse: collapse; width: 100%; height: 54px; letter-spacing: 1px;  font-family: Arial; " border="1">
 <tbody>
 <tr style="height: 18px;">
 <td style="width: 50%; height: 18px;">Autoriza&oacute;n de la legislatura</td>
@@ -120,48 +120,51 @@
         page-break-before: always;
     }
 </style>
-<p class="pagebreak"></p>
+ <!-- <p class="pagebreak"></p> -->
 
-<p style="text-align: justify;">Para dar cumplimiento a lo establecido por el art&iacute;culo 25 fracci&oacute;n I del Reglamento, declaro bajo protesta de decir verdad lo siguiente en relaci&oacute;n con el financiamiento que se solicita a inscribir:</p>
-<ol style="list-style-type: lower-alpha;">
-<li>
-<p>Se trata de Financiamientos pagaderos en M&eacute;xico y en moneda nacional, contra&iacute;dos con las Instituciones Financieras que operen en territorio nacional o con personas f&iacute;sicas o morales de nacionalidad mexicana a trav&eacute;s de emisiones burs&aacute;tiles;</p>
-</li>
-<li>
-<p>Trat&aacute;ndose de Financiamientos que se hagan constar en t&iacute;tulos de cr&eacute;dito, la limitaci&oacute;n en el texto de los mismos de que s&oacute;lo podr&aacute;n ser negociados dentro del territorio nacional con las Instituciones Financieras que operen en territorio nacional o con personas f&iacute;sicas o morales de nacionalidad mexicana;</p>
-</li>
-<li>
-<p>La Legislatura Local autoriz&oacute;, conforme al art&iacute;culo 23 de la Ley, para contratar el Financiamiento, as&iacute; como en su caso, la Afectaci&oacute;n de participaciones, aportaciones federales o Ingresos Locales, y adem&aacute;s, en el caso de Municipios, entidades paraestatales y paramunicipales y otros Entes P&uacute;blicos, que se cuenta con las autorizaciones del cabildo o de sus &oacute;rganos de gobierno facultados para autorizar la contrataci&oacute;n, seg&uacute;n corresponda*;</p>
-<p>&nbsp;</p>
-</li>
-<li>
-<p>El monto contratado que tenga como Fuente de Pago Ingresos de Libre Disposici&oacute;n, est&aacute; comprendido dentro del Techo de Financiamiento Neto, de conformidad con la informaci&oacute;n emitida por el Sistema de Alertas. En caso de que el monto contratado exceda el Techo de Financiamiento Neto, conforme al art&iacute;culo 46, segundo p&aacute;rrafo de la Ley, manifestar que se ha cumplido con lo se&ntilde;alado en el art&iacute;culo 6, p&aacute;rrafo tercero de la Ley, as&iacute; como con lo se&ntilde;alado en el Reglamento del Sistema de Alertas. En caso de que el Ente P&uacute;blico se ubique en un endeudamiento elevado conforme a la evaluaci&oacute;n inicial del Sistema de Alertas, manifestar que cuenta con el convenio a que se refieren los art&iacute;culos 34 y 47 de la Ley, y que establece un Techo de Financiamiento Neto distinto al se&ntilde;alado en el art&iacute;culo 46 de la Ley;</p>
-</li>
-<li>
-<p>El Financiamiento se contrat&oacute; en las mejores condiciones de mercado de conformidad con la Ley, este Reglamento y dem&aacute;s disposiciones jur&iacute;dicas aplicables;</p>
-</li>
-<li>
-<p>El destino de los recursos, trat&aacute;ndose de Inversi&oacute;n P&uacute;blica Productiva, es para los proyectos u obras elegibles o rubro de inversi&oacute;n que se encuentran comprendidos dentro de la definici&oacute;n a que refiere la fracci&oacute;n XXV del art&iacute;culo 2 de la Ley.</p>
-<p>&nbsp;</p>
-</li>
-<li>
-<p>Los documentos que se presentan con la solicitud en el Sistema del Registro P&uacute;blico &Uacute;nico, cumplen con los requisitos a que se refiere el art&iacute;culo 16 de la Ley de Firma Electr&oacute;nica Avanzada.</p>
-</li>
-<li>
-<p>El destino de los recursos ser&aacute; cubrir necesidades de corto plazo, entendiendo dichas necesidades como insuficiencias de liquidez de car&aacute;cter temporal, de conformidad con lo establecido en el art&iacute;culo 31 de la Ley de Disciplina Financiera de las Entidades Federativas y los Municipios.</p>
-<p>&nbsp;</p>
-<p>En virtud de lo anterior, se adjuntan los siguientes documentos:</p>
-<p><u>&nbsp;[Listado de los documentos que se anexan a la solicitud Digital]</u></p>
-<p>Por lo antes expuesto, atentamente solicito a la Secretaria se sirva:</p>
-<p><strong>PRIMERO</strong>: Tenerme por presentado en t&eacute;rminos del presente escrito con la personalidad que ostento.</p>
-<p><strong>SEGUNDO</strong>: Tener por presentados los documentos que se ponen a su consideraci&oacute;n, de conformidad con lo dispuesto en los art&iacute;culos aplicables del Reglamento.</p>
-<p><strong>TERCERO</strong>: Inscribir en el Registro de Obligaciones y Empr&eacute;stitos del Estado de Nuevo Le&oacute;n el instrumento jur&iacute;dico mencionado.</p>
-<p>Sin m&aacute;s por el momento, quedo de usted, reiterando mi atenta consideraci&oacute;n</p>
-<p>&nbsp;</p>
-<p><strong>ATENTAMENTE </strong></p>
-<p><strong>&nbsp;</strong></p>
+<p style="text-align: justify; letter-spacing: 1px;  font-family: Arial;">Para dar cumplimiento a lo establecido por el art&iacute;culo 25 fracci&oacute;n I del Reglamento, declaro bajo protesta de decir verdad lo siguiente en relaci&oacute;n con el financiamiento que se solicita a inscribir:</p>
+<ol style="list-style-type: lower-alpha;  ">
 
-<p><strong>___________________________</strong></p>
+{%for x in reglas%}
+    <p style="letter-spacing: 1px;  font-family: Arial;"> {{x}}</p>
+
+
+{% endfor %}
+<!-- <p style="letter-spacing: 1px;  font-family: Arial;">{{regla_a}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_b}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_c}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_d}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_e}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_f}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_g}}</p>
+</li>
+<li>
+<p style="letter-spacing: 1px;  font-family: Arial;">{{regla_h}}</p> -->
+
+
+<p style="letter-spacing: 1px;  font-family: Arial;">En virtud de lo anterior, se adjuntan los siguientes documentos:</p>
+<p style="letter-spacing: 1px;  font-family: Arial;"><u>&nbsp;[Listado de los documentos que se anexan a la solicitud Digital]</u></p>
+<p style="letter-spacing: 1px;  font-family: Arial;">Por lo antes expuesto, atentamente solicito a la Secretaria se sirva:</p>
+<p style="letter-spacing: 1px;  font-family: Arial;"><strong>PRIMERO</strong>: Tenerme por presentado en t&eacute;rminos del presente escrito con la personalidad que ostento.</p>
+<p style="letter-spacing: 1px;  font-family: Arial;"><strong>SEGUNDO</strong>: Tener por presentados los documentos que se ponen a su consideraci&oacute;n, de conformidad con lo dispuesto en los art&iacute;culos aplicables del Reglamento.</p>
+<p style="letter-spacing: 1px;  font-family: Arial;"><strong>TERCERO</strong>: Inscribir en el Registro de Obligaciones y Empr&eacute;stitos del Estado de Nuevo Le&oacute;n el instrumento jur&iacute;dico mencionado.</p>
+<p style="letter-spacing: 1px;  font-family: Arial;">Sin m&aacute;s por el momento, quedo de usted, reiterando mi atenta consideraci&oacute;n</p>
+<br/>
+<p style="text-align: center;" ><strong>ATENTAMENTE </strong></p>
+<p style="letter-spacing: 1px;  font-family: Arial;"><strong>&nbsp;</strong></p>
+<p style="text-align: center;" ><strong>___________________________</strong></p>
 </li>
 </ol>
 

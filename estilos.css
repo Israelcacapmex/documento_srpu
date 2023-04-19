@@ -1,5 +1,8 @@
-h4, p  {
+h4, p, table   {
     line-height: 1.5;
     text-align: justify;
-    
+    word-spacing: 1em;
+    font-family: Arial;
+    letter-spacing: 1px;
 }
+ 

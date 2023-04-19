@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 from PyPDF2 import  PdfReader
 import copy
+import io 
 
 app = Flask(__name__)
 CORS(app)
@@ -21,27 +22,55 @@ def get_data():
     for pdf in glob.iglob('*.pdf', recursive=True):#Elimina los documentos pdf para borrar el cache 
          os.remove(pdf)
     data = request.data
+    
     data = json.loads(data)
-    print(request.data)
+    #print("data 1", data)
+    # nombre = data["solicitud"]["capitalFechaPrimerPago"]
+    # print(nombre)
+    # data = data["solicitud"]
+    print("data 2", data)
     return documento(data)
 
 def documento(data):
 
     #data =  data["body"]
+    #print(data)
     nombre = data["nombre"]
     oficionum = data["oficionum"]
     cargo = data["cargo"]
     organismo = data["organismo"]
     InstitucionBancaria = data["InstitucionBancaria"]
     monto = data["monto"]
-    fechacontrato = data["fechacontrato"]
+
+    fechaContrato = data["fechaContrato"]
     destino = data["destino"]
     dias = data["dias"]
-    fechavencimiento = data["fechavencimiento"]
-    # entepublicoobligado = data["entepublicoobligado"]
-    # tasadeinteres = data["tasadeinteres"]
+    fechaVencimiento = data["fechaVencimiento"]
+    entepublicoobligado = data["organismo"]
+    tipoEntePublicoObligado = data["tipoEntePublicoObligado"]
 
-    #comisiones
+    tipocomisiones = data["tipocomisiones"]
+    tasaefectiva = data["tasaefectiva"]
+
+    servidorpublico = data["servidorpublico"]
+    contrato = data["contrato"]
+
+    periodopago = data["periodoPago"] 
+    organoDeGobierno = data["organismo"]
+
+    obligadoSolidarioAval = data["obligadoSolidarioAval"]
+
+    reglas = data["reglas"]
+    
+    tasadeInteres = data["tasaInteres"]
+   
+
+    if entepublicoobligado == '' :
+        entepublicoobligado = 'No aplica'
+    
+    if tipoEntePublicoObligado =='':
+        tipoEntePublicoObligado ='No aplica'
+    
 
     today_date = datetime.today().strftime("%d %b, %Y")
     template_loader = jinja2.FileSystemLoader(searchpath='./')
@@ -49,31 +78,49 @@ def documento(data):
     template = template_env.get_template('./templates/template.html')
 
     info ={"num":"10", "fecha":today_date, "nombre":nombre, "cargo":cargo, "organismo":organismo, 
-           "fechacontrato":fechacontrato, "InstitucionBancaria":InstitucionBancaria, "monto":monto,
-           "fechavencimiento":fechavencimiento, "destino":destino, "dias":dias, "oficionum":oficionum,
-           #"entepublicoobligado":entepublicoobligado, "tasadeinteres":tasadeinteres, 
-               }
+            "fechacontrato":fechaContrato, "InstitucionBancaria":InstitucionBancaria, "monto":monto,
+            "fechavencimiento":fechaVencimiento, "destino":destino, "dias":dias, "oficionum":oficionum,
+            "entepublicoobligado":entepublicoobligado, "tasadeinteres":tasadeInteres, "organodegobierno":organismo,
+            "servidorpublico":servidorpublico, "contrato":contrato, "periodopago": periodopago, "obligadoSolidarioAval":obligadoSolidarioAval,
+             "reglas":reglas, "tipocomisiones":tipocomisiones, "tasaefectiva":tasaefectiva   }
 
   
     output_text = template.render(info)
 
+  
 
-
-    
-    
     config = pdfkit.configuration(wkhtmltopdf="C://Users//hp//Downloads//wkhtmltopdf//bin//wkhtmltopdf.exe")
-    pdfkit.from_string(output_text, 'srpu_document.pdf', configuration=config) 
+    pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
+                    'margin-top': '0.50in',
+                    'margin-right': '0.50in',
+                    'margin-bottom': '0.50in',
+                    'margin-left': '0.5in',
+                    'encoding': "UTF-8",
+                    'javascript-delay' : '550',
+                    'no-outline': None}) 
 
-
-    pdf = open('srpu_document.pdf', 'rb')
-    print("hola")
     
-    # filename = Path('srpu_document.pdf')
-    # filename.write_bytes(pdf)
-    # print(filename)
-    # filename.seek(0)
 
-    return send_file(pdf, as_attachment=True, mimetype="application/pdf", download_name="documento_srpu.pdf")#regresa el documento para su descarga
+    pdf = open('srpu_document.pdf', 'rb').read()
+    
+
+    return Response(
+        pdf,
+        mimetype="application/pdf",
+        headers={
+            "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
+            "Content-type": "application/force-download"
+        }
+    ) 
+    
+#send_file(pdf, as_attachment=True, mimetype="application/pdf", download_name="documento_srpu.pdf")#regresa el documento para su descarga
+    #response, 200, {
+    #     'Content-Type': 'application/pdf',
+    #     'Content-Disposition': 'inline; filename="name_of_file.pdf"'} 
+    # bytes(bytes_file), 200, {
+    # 'Content-Type': 'application/pdf',
+    # 'Content-Disposition': 'inline; filename="nameofyourchoice.pdf"'}
+#
 
     
 if __name__ == '__main__':
