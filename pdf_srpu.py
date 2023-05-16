@@ -14,15 +14,17 @@ import copy
 import io 
 
 app = Flask(__name__)
-CORS(app)
 
+
+
+CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
 
 def get_data():
     for pdf in glob.iglob('*.pdf', recursive=True):#Elimina los documentos pdf para borrar el cache 
          os.remove(pdf)
+        
     data = request.data
-    
     data = json.loads(data)
     #print("data 1", data)
     # nombre = data["solicitud"]["capitalFechaPrimerPago"]
@@ -37,33 +39,27 @@ def documento(data):
     #print(data)
     nombre = data["nombre"]
     oficionum = data["oficionum"]
-    cargo = data["cargo"]
+    cargo = data["cargoServidorPublicoSolicitante"]
     organismo = data["organismo"]
     InstitucionBancaria = data["InstitucionBancaria"]
     monto = data["monto"]
-
     fechaContrato = data["fechaContrato"]
     destino = data["destino"]
     dias = data["dias"]
     fechaVencimiento = data["fechaVencimiento"]
     entepublicoobligado = data["organismo"]
     tipoEntePublicoObligado = data["tipoEntePublicoObligado"]
-
     tipocomisiones = data["tipocomisiones"]
     tasaefectiva = data["tasaefectiva"]
-
     servidorpublico = data["servidorpublico"]
     contrato = data["contrato"]
-
     periodopago = data["periodoPago"] 
     organoDeGobierno = data["organismo"]
-
     obligadoSolidarioAval = data["obligadoSolidarioAval"]
-
     reglas = data["reglas"]
-    
     tasadeInteres = data["tasaInteres"]
-   
+    Documentos = data["Documentos"]
+    print(Documentos)
 
     if entepublicoobligado == '' :
         entepublicoobligado = 'No aplica'
@@ -82,7 +78,7 @@ def documento(data):
             "fechavencimiento":fechaVencimiento, "destino":destino, "dias":dias, "oficionum":oficionum,
             "entepublicoobligado":entepublicoobligado, "tasadeinteres":tasadeInteres, "organodegobierno":organismo,
             "servidorpublico":servidorpublico, "contrato":contrato, "periodopago": periodopago, "obligadoSolidarioAval":obligadoSolidarioAval,
-             "reglas":reglas, "tipocomisiones":tipocomisiones, "tasaefectiva":tasaefectiva   }
+             "reglas":reglas, "tipocomisiones":tipocomisiones, "tasaefectiva":tasaefectiva,"tipoEntePublicoObligado": tipoEntePublicoObligado ,"Documentos":Documentos  }
 
   
     output_text = template.render(info)
