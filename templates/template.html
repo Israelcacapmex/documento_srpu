@@ -155,7 +155,13 @@
 
 
 <p style="letter-spacing: 1px;  font-family: Arial;">En virtud de lo anterior, se adjuntan los siguientes documentos:</p>
-<p style="letter-spacing: 1px;  font-family: Arial;"><u>&nbsp;[Listado de los documentos que se anexan a la solicitud Digital]</u></p>
+
+
+{%for x in Documentos%}
+    <p style="letter-spacing: 1px;  font-family: Arial;"> -{{x}}</p>
+
+
+{% endfor %}
 <p style="letter-spacing: 1px;  font-family: Arial;">Por lo antes expuesto, atentamente solicito a la Secretaria se sirva:</p>
 <p style="letter-spacing: 1px;  font-family: Arial;"><strong>PRIMERO</strong>: Tenerme por presentado en t&eacute;rminos del presente escrito con la personalidad que ostento.</p>
 <p style="letter-spacing: 1px;  font-family: Arial;"><strong>SEGUNDO</strong>: Tener por presentados los documentos que se ponen a su consideraci&oacute;n, de conformidad con lo dispuesto en los art&iacute;culos aplicables del Reglamento.</p>
