@@ -19,9 +19,6 @@ app = Flask(__name__)
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
-print(Variable_entorno)
-print(debug_mode)
-
 CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
 
@@ -31,7 +28,6 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
-    print("data 2", data)
     return documento(data)
 
 def documento(data):
@@ -59,7 +55,6 @@ def documento(data):
     reglas = data["reglas"]
     tasadeInteres = data["tasaInteres"]
     Documentos = data["Documentos"]
-    print(Documentos)
 
     if entepublicoobligado == '' :
         entepublicoobligado = 'No aplica'
