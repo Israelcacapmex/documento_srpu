@@ -12,10 +12,12 @@ from pathlib import Path
 from PyPDF2 import  PdfReader
 import copy
 import io 
-
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
 
-
+Variable_entorno = os.environ.get('Variable_entorno')
+debug_mode = os.environ.get('DEBUG')
 
 CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
@@ -26,17 +28,11 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
-    #print("data 1", data)
-    # nombre = data["solicitud"]["capitalFechaPrimerPago"]
-    # print(nombre)
-    # data = data["solicitud"]
-    print("data 2", data)
     return documento(data)
 
 def documento(data):
 
-    #data =  data["body"]
-    #print(data)
+ 
     nombre = data["nombre"]
     oficionum = data["oficionum"]
     cargo = data["cargoServidorPublicoSolicitante"]
@@ -59,7 +55,6 @@ def documento(data):
     reglas = data["reglas"]
     tasadeInteres = data["tasaInteres"]
     Documentos = data["Documentos"]
-    print(Documentos)
 
     if entepublicoobligado == '' :
         entepublicoobligado = 'No aplica'
@@ -84,8 +79,7 @@ def documento(data):
     output_text = template.render(info)
 
   
-
-    config = pdfkit.configuration(wkhtmltopdf="C://Users//hp//Downloads//wkhtmltopdf//bin//wkhtmltopdf.exe")
+    config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
     pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
                     'margin-top': '0.50in',
                     'margin-right': '0.50in',
