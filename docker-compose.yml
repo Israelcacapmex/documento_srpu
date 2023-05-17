@@ -12,4 +12,4 @@ services:
     environment:
       - FLASK_APP=app.py
       - FLASK_ENV=development
-      - Variable_entorno=
+      - Variable_entorno=/usr/bin/wkhtmltopdf
