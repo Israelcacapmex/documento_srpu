@@ -100,8 +100,8 @@ def documento(data):
         headers={
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
             "Content-type": "application/force-download",
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS'
+            # 'Access-Control-Allow-Origin': '*',
+            # 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS'
         }
     ) 
     
