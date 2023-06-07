@@ -21,15 +21,6 @@ debug_mode = os.environ.get('DEBUG')
 
 CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
-# @app.after_request
-# def after_request(response):
-#   response.headers.add('Access-Control-Allow-Origin', '*')
-#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-#   return response
-
-
-# if __name__ == '__main__':
-#     app.run()
 
 def get_data():
     for pdf in glob.iglob('*.pdf', recursive=True):#Elimina los documentos pdf para borrar el cache 
@@ -38,7 +29,13 @@ def get_data():
     data = request.data
     data = json.loads(data)
     
-    return documento(data)
+    return documento(data,
+        headers={
+            "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
+            "Content-type": "application/force-download",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS'
+        })
 
 def documento(data):
     
