@@ -28,10 +28,12 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
+    
+    data.headers.add('Access-Control-Allow-Origin', '*')
     return documento(data)
 
 def documento(data):
-
+    
  
     nombre = data["nombre"]
     oficionum = data["oficionum"]
