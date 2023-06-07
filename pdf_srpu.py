@@ -1,7 +1,7 @@
 import jinja2
 import pdfkit
 from datetime import datetime
-from flask import Flask, request, send_file, Response
+from flask import Flask, request, Response
 from flask_cors import CORS
 from pathlib import Path
 from os import remove
@@ -29,13 +29,7 @@ def get_data():
     data = request.data
     data = json.loads(data)
     
-    return documento(data,
-        headers={
-            "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
-            "Content-type": "application/force-download",
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS'
-        })
+    return documento(data)
 
 def documento(data):
     
