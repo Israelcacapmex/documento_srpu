@@ -95,13 +95,13 @@ def documento(data):
 
     pdf = open('srpu_document.pdf', 'rb').read()
     
-
     return Response(
         pdf,
         mimetype="application/pdf",
         headers={
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
-            "Content-type": "application/force-download"
+            "Content-type": "application/force-download",
+            'Access-Control-Allow-Origin': '*'
         }
     ) 
     
