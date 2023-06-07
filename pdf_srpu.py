@@ -24,7 +24,6 @@ CORS(app)
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   return response
 
@@ -39,7 +38,6 @@ def get_data():
     data = request.data
     data = json.loads(data)
     
-    data.headers.add('Access-Control-Allow-Origin', '*')
     return documento(data)
 
 def documento(data):
