@@ -1,7 +1,7 @@
 import jinja2
 import pdfkit
 from datetime import datetime
-from flask import Flask, request, Response
+from flask import Flask, Response, request
 from flask_cors import CORS
 import os
 import glob
