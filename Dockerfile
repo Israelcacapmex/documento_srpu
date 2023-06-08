@@ -1,4 +1,4 @@
-FROM python:3.9.10-slim-buster
+FROM python:3.8.10-slim-buster
 WORKDIR /app
 COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
