@@ -8,6 +8,7 @@ RUN apt-get install -y wkhtmltopdf
 RUN apt-get install --reinstall libqt5widgets5 libqt5gui5 libqt5dbus5 libqt5network5 libqt5core5a
 RUN apt --fix-broken install
 RUN apt install binutils
+RUN y
 RUN strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so
 RUN apt-get install -y build-essential python3-dev
 RUN pip install pdfkit
