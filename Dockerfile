@@ -5,6 +5,7 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 RUN apt-get install -y wkhtmltopdf
+RUN sudo strip --remove-section=.note.ABI-tag /usr/lib64/libQt5Core.so.5
 RUN apt-get install -y build-essential python3-dev
 RUN pip install pdfkit
 RUN pip install flask
