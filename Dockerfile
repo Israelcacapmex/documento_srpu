@@ -16,6 +16,7 @@ RUN pip install Pillow
 RUN pip install Flask
 RUN pip install flask-cors
 RUN apt-get install wkhtmltopdf
+RUN apt-get install -f
 COPY . /app
 ENTRYPOINT [ "python" ]
 CMD [ "pdf_srpu.py" ]
