@@ -1,23 +1,25 @@
 import jinja2
 import pdfkit
 from datetime import datetime
-from flask import Flask, Response, request
+from flask import Flask, request, send_file, Response
 from flask_cors import CORS
+from pathlib import Path
+from os import remove
 import os
 import glob
 import json
-
+from pathlib import Path
+from PyPDF2 import  PdfReader
+import copy
+import io 
 from dotenv import load_dotenv
 load_dotenv()
-
-
-
 app = Flask(__name__)
-CORS(app)
 
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
+CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
 
 def get_data():
@@ -26,11 +28,10 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
-    
     return documento(data)
 
 def documento(data):
-    
+
  
     nombre = data["nombre"]
     oficionum = data["oficionum"]
@@ -78,7 +79,7 @@ def documento(data):
     output_text = template.render(info)
 
   
-    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+    config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
     pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
                     'margin-top': '0.50in',
                     'margin-right': '0.50in',
@@ -91,9 +92,8 @@ def documento(data):
     
 
     pdf = open('srpu_document.pdf', 'rb').read()
+    
 
-
-    Response.header("Access-Control-Allow-Origin", "*")
     return Response(
         pdf,
         mimetype="application/pdf",
@@ -110,6 +110,8 @@ def documento(data):
     # bytes(bytes_file), 200, {
     # 'Content-Type': 'application/pdf',
     # 'Content-Disposition': 'inline; filename="nameofyourchoice.pdf"'}
+#
+
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7000, debug= True)
