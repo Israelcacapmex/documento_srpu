@@ -19,7 +19,7 @@ app = Flask(__name__)
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 @app.route('/documento_srpu',  methods=['POST'])
 
 def get_data():
