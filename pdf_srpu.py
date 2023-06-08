@@ -1,12 +1,8 @@
 import jinja2
 import pdfkit
-
 from datetime import datetime
-
 from flask import Flask, request, Response
-
 from flask_cors import CORS
-
 from pathlib import Path
 from os import remove
 import os
@@ -35,7 +31,8 @@ def get_data():
     
     return documento(data, headers={
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
+            'Access-Control-Allow-Headers': 'Content-Type,Authorization'
         })
 
 def documento(data):
@@ -108,7 +105,8 @@ def documento(data):
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
             "Content-type": "application/force-download",
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
+            'Access-Control-Allow-Headers': 'Content-Type,Authorization'
         }
     ) 
     
@@ -123,7 +121,7 @@ def documento(data):
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   return response
     
