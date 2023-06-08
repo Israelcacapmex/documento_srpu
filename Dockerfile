@@ -5,7 +5,7 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 RUN apt-get install -y wkhtmltopdf
-RUN apt-get install libqt5core5
+RUN apt-get install libqt5webkit5
 # RUN apt-get install --reinstall libqt5widgets5 libqt5gui5 libqt5dbus5 libqt5network5 libqt5core5a
 RUN apt --fix-broken install
 RUN apt install -y binutils
