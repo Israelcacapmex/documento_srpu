@@ -15,6 +15,7 @@ RUN pip install --verbose --no-cache-dir -r requirements.txt
 RUN pip install Pillow
 RUN pip install Flask
 RUN pip install flask-cors
+RUN apt-get install wkhtmltopdf
 COPY . /app
 ENTRYPOINT [ "python" ]
 CMD [ "pdf_srpu.py" ]
