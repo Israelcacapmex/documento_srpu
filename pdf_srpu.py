@@ -89,7 +89,9 @@ def documento(data):
     
 
     pdf = open('srpu_document.pdf', 'rb').read()
-    
+
+
+    Response.header("Access-Control-Allow-Origin", "*")
     return Response(
         pdf,
         mimetype="application/pdf",
