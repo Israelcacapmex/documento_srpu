@@ -5,8 +5,8 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 RUN apt-get install -y wkhtmltopdf
-RUN mv /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
-RUN apt-get install libqt5webkit5
+RUN apt-get install -y libqt5webkit5
+RUN strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
 RUN apt --fix-broken install
 RUN apt install -y binutils
 RUN apt-get install -y build-essential python3-dev
