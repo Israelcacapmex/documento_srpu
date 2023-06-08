@@ -3,23 +3,19 @@ import pdfkit
 from datetime import datetime
 from flask import Flask, request, Response
 from flask_cors import CORS
-from pathlib import Path
-from os import remove
 import os
 import glob
 import json
-from pathlib import Path
-from PyPDF2 import  PdfReader
-import copy
-import io 
+
 from dotenv import load_dotenv
 load_dotenv()
+
 app = Flask(__name__)
+CORS(app)
 
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
-CORS(app, resources={r"/api/*": {"origins": "*"}})
 @app.route('/documento_srpu',  methods=['POST'])
 
 def get_data():
@@ -29,11 +25,7 @@ def get_data():
     data = request.data
     data = json.loads(data)
     
-    return documento(data, headers={
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
-            'Access-Control-Allow-Headers': 'Content-Type,Authorization'
-        })
+    return documento(data)
 
 def documento(data):
     
@@ -103,10 +95,7 @@ def documento(data):
         mimetype="application/pdf",
         headers={
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
-            "Content-type": "application/force-download",
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
-            'Access-Control-Allow-Headers': 'Content-Type,Authorization'
+            "Content-type": "application/force-download"
         }
     ) 
     
@@ -117,13 +106,6 @@ def documento(data):
     # bytes(bytes_file), 200, {
     # 'Content-Type': 'application/pdf',
     # 'Content-Disposition': 'inline; filename="nameofyourchoice.pdf"'}
-
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  return response
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7000, debug= True)
