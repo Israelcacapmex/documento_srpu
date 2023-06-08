@@ -19,8 +19,6 @@ app = Flask(__name__)
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
-print(Variable_entorno)
-print(debug_mode)
 
 CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
@@ -47,7 +45,7 @@ def documento(data):
     destino = data["destino"]
     dias = data["dias"]
     fechaVencimiento = data["fechaVencimiento"]
-    entepublicoobligado = data["organismo"]
+    
     tipoEntePublicoObligado = data["tipoEntePublicoObligado"]
     tipocomisiones = data["tipocomisiones"]
     tasaefectiva = data["tasaefectiva"]
@@ -61,11 +59,17 @@ def documento(data):
     Documentos = data["Documentos"]
     print(Documentos)
 
+    if "organismo" in data == '' :
+        entepublicoobligado = data["organismo"]
+        #entepublicoobligado = 'No aplica'
+
     if entepublicoobligado == '' :
         entepublicoobligado = 'No aplica'
     
     if tipoEntePublicoObligado =='':
         tipoEntePublicoObligado ='No aplica'
+
+    
     
 
     today_date = datetime.today().strftime("%d %b, %Y")
