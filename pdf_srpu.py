@@ -78,7 +78,7 @@ def documento(data):
     output_text = template.render(info)
 
   
-    config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
+    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
     pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
                     'margin-top': '0.50in',
                     'margin-right': '0.50in',
