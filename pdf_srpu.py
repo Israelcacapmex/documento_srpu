@@ -100,6 +100,9 @@ def documento(data):
         headers={
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
             "Content-type": "application/force-download",
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
         }
     ) 
     
@@ -110,13 +113,6 @@ def documento(data):
     # bytes(bytes_file), 200, {
     # 'Content-Type': 'application/pdf',
     # 'Content-Disposition': 'inline; filename="nameofyourchoice.pdf"'}
-
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  return response
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7000, debug= True)
