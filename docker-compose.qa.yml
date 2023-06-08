@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  py-srpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9093:7000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - Variable_entorno=/usr/bin/wkhtmltopdf

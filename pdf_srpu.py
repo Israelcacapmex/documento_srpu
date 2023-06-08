@@ -29,7 +29,6 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
-    print("data 2", data)
     return documento(data)
 
 def documento(data):
@@ -60,7 +59,7 @@ def documento(data):
     print(Documentos)
 
     if "organismo" in data == '' :
-        entepublicoobligado = data["organismo"]
+        entepublicoobligado = data["organismo"] 
         #entepublicoobligado = 'No aplica'
 
     if entepublicoobligado == '' :
