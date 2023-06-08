@@ -14,8 +14,8 @@ RUN apt-get install -y swig
 RUN pip install --no-cache-dir setuptools
 RUN pip install --verbose --no-cache-dir -r requirements.txt
 RUN pip install Pillow
-RUN pip install flask
-RUN pip install -U flask_cors
+RUN pip install Flask
+RUN pip install -U flask-cors
 COPY . /app
 ENTRYPOINT [ "python" ]
 CMD [ "pdf_srpu.py" ]
