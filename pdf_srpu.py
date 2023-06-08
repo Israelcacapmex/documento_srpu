@@ -29,7 +29,10 @@ def get_data():
     data = request.data
     data = json.loads(data)
     
-    return documento(data)
+    return documento(data, headers={
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+        })
 
 def documento(data):
     
@@ -116,7 +119,7 @@ def documento(data):
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   return response
     
