@@ -29,11 +29,12 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
+    #print("Entre al servicio")
     return documento(data)
 
 def documento(data):
 
- 
+    #print("data: ",data)
     nombre = data["nombre"]
     oficionum = data["oficionum"]
     cargo = data["cargoServidorPublicoSolicitante"]
@@ -61,12 +62,15 @@ def documento(data):
     if "organismo" in data == '' :
         entepublicoobligado = data["organismo"] 
         #entepublicoobligado = 'No aplica'
-
-    if entepublicoobligado == '' :
-        entepublicoobligado = 'No aplica'
+    else:
+       entepublicoobligado = data["organismo"]   
     
+
+    #if entepublicoobligado == '' :
+     #       entepublicoobligado = 'No aplica'
+        
     if tipoEntePublicoObligado =='':
-        tipoEntePublicoObligado ='No aplica'
+            tipoEntePublicoObligado ='No aplica'
 
     
     
