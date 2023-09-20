@@ -112,7 +112,7 @@ def documento(data):
         mimetype="application/pdf",
         headers={
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
-            "Content-type": "application/force-download", 'charset':'utf-8',
+            "Content-type": "application/force-download",
         }
     ) 
     
