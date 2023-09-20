@@ -1,7 +1,7 @@
 import jinja2
 import pdfkit
 from datetime import datetime
-from flask import Flask, request, send_file, Response
+from flask import Flask, request, send_file, Response, Blueprint
 from flask_cors import CORS
 from pathlib import Path
 from os import remove
@@ -14,14 +14,14 @@ import copy
 import io 
 from dotenv import load_dotenv
 load_dotenv()
-app = Flask(__name__)
 
+pdf_largo = Blueprint('pdf_largo', __name__)
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
 
-CORS(app)
-@app.route('/documento_srpu',  methods=['POST'])
+CORS(pdf_largo)
+@pdf_largo.route('/documento_srpu_largo',  methods=['POST'])
 
 def get_data():
     for pdf in glob.iglob('*.pdf', recursive=True):#Elimina los documentos pdf para borrar el cache 
@@ -33,7 +33,7 @@ def get_data():
     return documento(data)
 
 def documento(data):
-
+    print("Entre a la prueba blueprint 1")
     #print("data: ",data)
     nombre = data["nombre"]
     oficionum = data["oficionum"]
@@ -57,7 +57,14 @@ def documento(data):
     reglas = data["reglas"]
     tasadeInteres = data["tasaInteres"]
     Documentos = data["Documentos"]
-    print(Documentos)
+
+    Esquema_Amortizacion = "Prueba"
+    Mecanismo_Amortizacion = "Prueba"
+    Fuente_Pago = "Prueba"
+    Autorizaciones_Estado = "Prueba"
+    Garantia_Pago = "Prueba"
+    Porcentaje_Pago = "Prueba"
+    Autorizacion_legislatura ="Prueba"
 
     if "organismo" in data == '' :
         entepublicoobligado = data["organismo"] 
@@ -75,17 +82,21 @@ def documento(data):
     
     
 
+
+
     today_date = datetime.today().strftime("%d %b, %Y")
     template_loader = jinja2.FileSystemLoader(searchpath='./')
     template_env = jinja2.Environment(loader=template_loader)
-    template = template_env.get_template('./templates/template.html')
+    template = template_env.get_template('./templates/template_largo.html')
 
     info ={"num":"10", "fecha":today_date, "nombre":nombre, "cargo":cargo, "organismo":organismo, 
             "fechacontrato":fechaContrato, "InstitucionBancaria":InstitucionBancaria, "monto":monto,
             "fechavencimiento":fechaVencimiento, "destino":destino, "dias":dias, "oficionum":oficionum,
             "entepublicoobligado":entepublicoobligado, "tasadeinteres":tasadeInteres, "organodegobierno":organismo,
             "servidorpublico":servidorpublico, "contrato":contrato, "periodopago": periodopago, "obligadoSolidarioAval":obligadoSolidarioAval,
-             "reglas":reglas, "tipocomisiones":tipocomisiones, "tasaefectiva":tasaefectiva,"tipoEntePublicoObligado": tipoEntePublicoObligado ,"Documentos":Documentos  }
+            "reglas":reglas, "tipocomisiones":tipocomisiones, "tasaefectiva":tasaefectiva,"tipoEntePublicoObligado": tipoEntePublicoObligado ,"Documentos":Documentos, 
+            "Esquema_Amortizacion":Esquema_Amortizacion, "Mecanismo_Amortizacion":Mecanismo_Amortizacion, "Fuente_Pago":Fuente_Pago, "Autorizaciones_Estado":Autorizaciones_Estado, 
+            "Garantia_Pago":Garantia_Pago, "Porcentaje_Pago": Porcentaje_Pago, "Autorizacion_legislatura": Autorizacion_legislatura }
 
   
     output_text = template.render(info)
@@ -125,5 +136,3 @@ def documento(data):
 #
 
     
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7000, debug= True)
