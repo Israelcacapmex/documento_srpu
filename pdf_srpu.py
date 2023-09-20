@@ -19,6 +19,7 @@ app = Flask(__name__)
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
 
+
 CORS(app)
 @app.route('/documento_srpu',  methods=['POST'])
 
@@ -28,11 +29,12 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
+    #print("Entre al servicio")
     return documento(data)
 
 def documento(data):
 
- 
+    #print("data: ",data)
     nombre = data["nombre"]
     oficionum = data["oficionum"]
     cargo = data["cargoServidorPublicoSolicitante"]
@@ -43,7 +45,7 @@ def documento(data):
     destino = data["destino"]
     dias = data["dias"]
     fechaVencimiento = data["fechaVencimiento"]
-    entepublicoobligado = data["organismo"]
+    
     tipoEntePublicoObligado = data["tipoEntePublicoObligado"]
     tipocomisiones = data["tipocomisiones"]
     tasaefectiva = data["tasaefectiva"]
@@ -55,12 +57,22 @@ def documento(data):
     reglas = data["reglas"]
     tasadeInteres = data["tasaInteres"]
     Documentos = data["Documentos"]
+    print(Documentos)
 
-    if entepublicoobligado == '' :
-        entepublicoobligado = 'No aplica'
+    if "organismo" in data == '' :
+        entepublicoobligado = data["organismo"] 
+        #entepublicoobligado = 'No aplica'
+    else:
+       entepublicoobligado = data["organismo"]   
     
+
+    #if entepublicoobligado == '' :
+     #       entepublicoobligado = 'No aplica'
+        
     if tipoEntePublicoObligado =='':
-        tipoEntePublicoObligado ='No aplica'
+            tipoEntePublicoObligado ='No aplica'
+
+    
     
 
     today_date = datetime.today().strftime("%d %b, %Y")
