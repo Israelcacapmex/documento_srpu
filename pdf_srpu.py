@@ -99,6 +99,7 @@ def documento(data):
                     'margin-left': '0.5in',
                     'encoding': "UTF-8",
                     'javascript-delay' : '550',
+                    'charset':'utf-8',
                     'no-outline': None}) 
 
     
@@ -111,7 +112,7 @@ def documento(data):
         mimetype="application/pdf",
         headers={
             "Content-disposition": "attachment; filename=" + "srpu_document.pdf",
-            "Content-type": "application/force-download"
+            "Content-type": "application/force-download", 'charset':'utf-8', 'encoding': "UTF-8",
         }
     ) 
     
