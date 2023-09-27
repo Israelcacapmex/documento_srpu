@@ -9,7 +9,6 @@ import os
 import glob
 import json
 from pathlib import Path
-from PyPDF2 import  PdfReader
 import copy
 import io 
 from dotenv import load_dotenv

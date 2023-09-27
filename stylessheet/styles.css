@@ -1,0 +1,47 @@
+h4{
+    text-align: justify; 
+    font-family: Arial; 
+    font-weight: 100;
+}
+
+.header{
+    text-align: right; 
+    font-family: Arial; 
+    font-weight: 100;
+}
+
+h3{
+    font-family: Arial; 
+    font-size: 17px;
+    font-weight: 100;
+    text-align: justify;
+}
+
+.atte{
+    display: flex;
+    justify-content: center;
+    font-family: Arial; 
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+}
+
+h2{
+    font-family: Arial; 
+    font-weight: 100;
+    font-size: 17px;
+}
+
+p{
+     line-height: 1.5;
+     text-align: justify;
+     word-spacing: 1em;
+     font-family: Arial;
+     letter-spacing: 1px;
+}
+
+td{
+    width: 10%;
+    vertical-align: -webkit-baseline-middle;
+    text-align: justify;
+}

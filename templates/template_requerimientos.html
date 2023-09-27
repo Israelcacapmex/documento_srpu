@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylessheet/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>{{num}}/2023</title>
+  </head>
+  <body>
+    <h4 class="header">
+      <strong> Unidad de Coordinaci&oacute;n con Entidades Federativas </strong>
+      <br />
+      Dirección General Adjunta de Deuda Pública de <br />
+      Entidades Federativas y Municipios
+    </h4>
+
+    <h4 class="header">
+      Oficio No. {{num}}/2023
+      <div id="current_date">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+        <script>
+          moment.locale("es"); // Español
+          const formattedDate = moment().format("LL");
+          document.getElementById("current_date").innerHTML =
+            "Monterrey, a " + formattedDate;
+        </script>
+      </div>
+    </h4>
+
+    <h3>
+      {{servidorPublico}} <br />
+      {{cargo}} <br />
+      {{organismo}}
+    </h3>
+
+    <h2>PRESENTE</h2>
+
+    <p>
+      Me refiero su oficio {{oficioSolicitud}} de fecha {{fechaSolicitud}},
+      recibido a través del Sistema de Gestión de Créditos a Municipios de
+      Financiamientos y Obligaciones de Entidades Federativas y Municipios, el
+      {{fechaSolicitud}}, mediante el cual solicita la inscripción en el
+      Registro Público Único de Financiamientos y Obligaciones de Entidades
+      Federativas y Municipios de un Crédito simple celebrado entre el(la)
+      {{entidad}} y(e) {{institucionBancaria}} el {{fechacontrato}}, hasta por
+      la cantidad de {{monto}}.
+    </p>
+
+    <p>
+      Sobre el particular, me permito informarle que para la inscripción de
+      contratos de Crédito simple el artículo 25 del Reglamento del Registro
+      Público Único de Financiamientos y Obligaciones de Entidades Federativas y
+      Municipios (Reglamento) establece que el Ente Público deberá cumplir con
+      lo establecido en el dicho artículo.
+    </p>
+
+    <p>
+      En virtud de lo anterior, una vez realizado el análisis al oficio de
+      mérito y a la documentación anexa al mismo, se detectaron las siguientes
+      omisiones y/o inconsistencias:
+    </p>
+
+    <h3>
+      <strong>
+        Reglamento del Registro Público Único de Financiamientos y Obligaciones
+        de Entidades Federativas y Municipios
+      </strong>
+    </h3>
+
+    <table
+      id="data-table"
+      style="
+        border-collapse: collapse;
+        width: 87.9101%;
+        height: 90px;
+        letter-spacing: 1px;
+        font-family: Arial;
+      "
+    >
+      <tr>
+        <th>Apartado</th>
+        <th>Comentario</th>
+      </tr>
+    </table>
+
+    <script type="text/javascript" charset="utf-8">
+      makeTag = function (openTag, closeTag) {
+        return function (content) {
+          return openTag + content + closeTag;
+        };
+      };
+      tHead = makeTag("<thead>", "</thead>");
+      tBody = makeTag("<tbody>", "</tbody>");
+      td = makeTag("<td>", "</td>");
+      tr = makeTag("<tr>", "</tr>");
+
+      function insertBasicTable(data, id) {
+        $("#data-table").html(
+          tBody(
+            Object.keys(data).reduce(function (o, n) {
+              return (
+                o +
+                tr(td(n) + "" + "" + td(" .- Artículo 25 ") + td(data[n] + ""))
+              );
+            }, "")
+          )
+        );
+      }
+
+      insertBasicTable("{{comentarios}}");
+
+      //   {
+      //     "Acreditación del techode financiamiento neto":
+      //       "La fr. XI, establece que deberá proporcionar el documento que acredite que el monto contratado en caso de Financiamientos respaldados con Ingresos de Libre Disposición (ILD), está comprendido dentro del Techo de Financiamiento Neto (TFN), anexando el documento en el cual se detalle el TFN, así como el saldo de todas las Obligaciones y Financiamientos vigentes a la fecha de su solicitud considerando el monto de la nueva obligación que se pretende inscribir <br/> <br/> Es el caso que adjuntó el oficio DT-DDP-1182/2022 de 31-12-2022, de cuyo análisis, se advierte: a)	En la tabla de financiamientos de largo plazo, incluyó dentro de las amortizaciones a realizar en el 2022, los montos de los financiamientos a refinanciar, no obstante, los créditos que van a refinanciar estos últimos, no se han inscrito en el Registro Público Único, ya que su solicitud de inscripción trascendió al presente ejercicio, por lo que, al no haberse dispuesto, es que estos no podrían considerarse. ",
+      //     "Tipo de Ente Público": "<br/> lorem",
+      //     "Fecha de Contratación (Informacion General)": " <br/> 3",
+      //     "Tabla Obligado Solidario Aval": "4",
+      //     "Tabla Condiciones Financieras": "5",
+      //     "Declaratoria del uso de reservas": "6",
+      //     "Documento de autorización": "7",
+      //     "Formato de resultado del proceso competitivo": "8",
+      //     Identificación: "9",
+      //   }
+    </script>
+
+    <p>
+      En virtud de los argumentos precedentes y de conformidad con lo
+      establecido en los artículos 49, 50 y 51 fracciones l, II, V, VIII, lX y
+      Xl de la Ley de Disciplina Financiera de las Entidades Federativas y los
+      Municipios; 3, 7, 16 fracciones ll, lll y lV, y 25 del Reglamento, y 59
+      Bis, fracciones III y XI del Reglamento Interior de la Secretaría de
+      Hacienda y Crédito Público y Segundo Transitorio del Decreto por el que se
+      reforman, adicionan y derogan diversas disposiciones del Reglamento
+      Interior de la Secretaría de Hacienda y Crédito Público, publicado en el
+      Diario Oficial de la Federación el 27 de septiembre de 2017, se le
+      previene para que subsanen las omisiones y/o inconsistencias señaladas
+      anteriormente, en un término no mayor a 10 días hábiles contados a partir
+      del día siguiente a la notificación del presente oficio.
+      <br />
+
+      Cabe señalar, que si lo anterior no es subsanado en el plazo señalado, no
+      podrá continuarse con el proceso de inscripción
+    </p>
+
+    <h3 class="atte">
+      Atentamente <br />
+      {{cargo}} <br />
+      <br />
+      {{servidorPublico}} <br />
+    </h3>
+  </body>
+</html>
