@@ -41,7 +41,5 @@ p{
 }
 
 td{
-    width: 10%;
-    vertical-align: -webkit-baseline-middle;
-    text-align: justify;
+    width: 10%; vertical-align: -webkit-baseline-middle; text-align: justify;
 }
