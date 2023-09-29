@@ -52,6 +52,8 @@ def documento(data):
     # else:
     #    entepublicoobligado = data["organismo"]  
 
+    
+
     today_date = datetime.today().strftime("%d %b, %Y")
     template_loader = jinja2.FileSystemLoader(searchpath='./')
     template_env = jinja2.Environment(loader=template_loader)
@@ -74,13 +76,15 @@ def documento(data):
 
   
     config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
-    pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
+    pdf_file = pdfkit.from_string(output_text,'header-prueba.html'#agregue esto como prueba a ver como funciona
+                                   'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
                     'margin-top': '0.50in',
                     'margin-right': '0.50in',
                     'margin-bottom': '0.50in',
                     'margin-left': '0.5in',
                     'encoding': "UTF-8",
                     'javascript-delay' : '550',
+                    'header-html': 'header-prueba.html', #Aqui hice una modificacion para el header aun no esta listo propenso aquitarse
                     'no-outline': None}) 
 
     
