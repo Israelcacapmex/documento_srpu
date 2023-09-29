@@ -81,6 +81,7 @@ def documento(data):
         'footer-center': "Edificio Víctor Gómez Garza Gral. Mariano Escobedo 333 Zona Centro Monterrey, Nuevo León \n C.P. 64000   Tel: (55) 8120201300   https://www.nl.gob.mx/tesoreria",
         'footer-right': "Página [page] de [topage]",
         'footer-font-size': "7",
+        'header-html': 'header-prueba.html',#Modifique aqui
         'no-outline': None}
     
     # add_pdf_header(options, bar)
@@ -88,7 +89,7 @@ def documento(data):
 
   
     config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
-    pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', 
+    pdf_file = pdfkit.from_string(output_text,'header-prueba.html', 'srpu_document.pdf', #agregue aqui la prueba
                                   configuration=config, 
                                   options= options,
                                       ) 
