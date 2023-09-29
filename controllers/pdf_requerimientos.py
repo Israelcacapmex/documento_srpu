@@ -9,8 +9,11 @@ from pathlib import Path
 import jinja2
 import pdfkit
 from dotenv import load_dotenv
-from flask import Blueprint, Flask, Response, request, send_file
+from flask import Blueprint, Flask, Response, request, send_file, render_template, make_response
 from flask_cors import CORS
+
+
+import tempfile
 
 load_dotenv()
 
@@ -29,11 +32,11 @@ def get_data():
         
     data = request.data
     data = json.loads(data)
-    #print("Entre al servicio")
+    
     return documento(data)
 
+
 def documento(data):
-    print(data)
     servidorPublico = data["servidorPublico"]
     cargo = data["cargo"]
     organismo = data["organismo"]
@@ -44,20 +47,12 @@ def documento(data):
     fechaContrato = data["fechaContrato"]
     monto = data["monto"]
     comentarios = data["comentarios"]
-    
 
-    # if "organismo" in data == '' :
-    #     entepublicoobligado = data["organismo"] 
-    #     #entepublicoobligado = 'No aplica'
-    # else:
-    #    entepublicoobligado = data["organismo"]  
-
-    
-
-    today_date = datetime.today().strftime("%d %b, %Y")
     template_loader = jinja2.FileSystemLoader(searchpath='./')
     template_env = jinja2.Environment(loader=template_loader)
     template = template_env.get_template('./templates/template_requerimientos.html')
+
+
 
     info ={
         "servidorPublico":servidorPublico, 
@@ -74,18 +69,29 @@ def documento(data):
   
     output_text = template.render(info)
 
+    options={
+        "enable-local-file-access": "",
+        'page-size': 'Letter',
+        'margin-top': '0.50in',
+        'margin-right': '0.50in',
+        'margin-bottom': '0.50in',
+        'margin-left': '0.5in',
+        'encoding': "UTF-8",
+        'javascript-delay' : '550',
+        'footer-center': "Edificio Víctor Gómez Garza Gral. Mariano Escobedo 333 Zona Centro Monterrey, Nuevo León \n C.P. 64000   Tel: (55) 8120201300   https://www.nl.gob.mx/tesoreria",
+        'footer-right': "Página [page] de [topage]",
+        'footer-font-size': "7",
+        'no-outline': None}
+    
+    add_pdf_header(options, bar)
+    add_pdf_footer(options)
+
   
     config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
-    pdf_file = pdfkit.from_string(output_text,'header-prueba.html'#agregue esto como prueba a ver como funciona
-                                   'srpu_document.pdf', configuration=config, options={"enable-local-file-access": "",'page-size': 'Letter',
-                    'margin-top': '0.50in',
-                    'margin-right': '0.50in',
-                    'margin-bottom': '0.50in',
-                    'margin-left': '0.5in',
-                    'encoding': "UTF-8",
-                    'javascript-delay' : '550',
-                    'header-html': 'header-prueba.html', #Aqui hice una modificacion para el header aun no esta listo propenso aquitarse
-                    'no-outline': None}) 
+    pdf_file = pdfkit.from_string(output_text, 'srpu_document.pdf', 
+                                  configuration=config, 
+                                  options= options,
+                                      ) 
 
     
 
@@ -100,14 +106,15 @@ def documento(data):
             "Content-type": "application/force-download"
         }
     ) 
-    
-#send_file(pdf, as_attachment=True, mimetype="application/pdf", download_name="documento_srpu.pdf")#regresa el documento para su descarga
-    #response, 200, {
-    #     'Content-Type': 'application/pdf',
-    #     'Content-Disposition': 'inline; filename="name_of_file.pdf"'} 
-    # bytes(bytes_file), 200, {
-    # 'Content-Type': 'application/pdf',
-    # 'Content-Disposition': 'inline; filename="nameofyourchoice.pdf"'}
-#
 
-    
+def add_pdf_header(options, bar):
+    with tempfile.NamedTemporaryFile(suffix='.html', delete=False) as header:
+        options['--header-html'] = header.name
+        header.write(
+            render_template('header.html', bar=bar).encode('utf-8')
+        )
+    return
+
+def add_pdf_footer(options):
+    # same behaviour as add_pdf_header but without passing any variable
+    return
