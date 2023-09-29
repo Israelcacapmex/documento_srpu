@@ -83,8 +83,8 @@ def documento(data):
         'footer-font-size': "7",
         'no-outline': None}
     
-    add_pdf_header(options, bar)
-    add_pdf_footer(options)
+    # add_pdf_header(options, bar)
+    # add_pdf_footer(options)
 
   
     config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
