@@ -1,21 +1,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-
 <h4
   style="text-align: right; font-family: Arial; font-weight: 100"
   class="header"
 >
-  <strong style="font-weight: 700; letter-spacing: 1px">
-    Unidad de Coordinación con Entidades Federativas
-  </strong>
-  <br />
-  Dirección General Adjunta de Deuda Pública de <br />
-  Entidades Federativas y Municipios
-  <br />
-  <br />
-  Oficio No. {{num}}/2023
+  Oficio No. {{oficioRequerimiento}}
   <div id="current_date">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
     <script>
@@ -29,7 +19,7 @@
 <h3
   style="
     font-family: Arial;
-    font-size: 17px;
+    font-size: 12px;
     font-weight: 100;
     text-align: justify;
     letter-spacing: 1px;
@@ -43,7 +33,7 @@
 <h3
   style="
     font-family: Arial;
-    font-size: 17px;
+    font-size: 12px;
     text-align: justify;
     font-weight: 100;
     letter-spacing: 5px;
@@ -52,14 +42,23 @@
   PRESENTE
 </h3>
 
-<p style="text-align: justify; font-family: Arial; letter-spacing: 1px">
+<p
+  style="
+    font-family: Arial;
+    font-size: 12px;
+    text-align: justify;
+    font-weight: 100;
+    letter-spacing: 1px;
+  "
+>
   Me refiero su oficio {{oficioSolicitud}} de fecha {{fechaSolicitud}}, recibido
   a través del Sistema de Gestión de Créditos a Municipios de Financiamientos y
   Obligaciones de Entidades Federativas y Municipios, el {{fechaSolicitud}},
   mediante el cual solicita la inscripción en el Registro Público Único de
   Financiamientos y Obligaciones de Entidades Federativas y Municipios de un
-  Crédito simple celebrado entre el(la) {{entidad}} y(e) {{institucionBancaria}}
-  el {{fechacontrato}}, hasta por la cantidad de {{monto}}.
+  Crédito simple celebrado entre el(la) {{entePublicoObligado}} y(e)
+  {{institucionBancaria}} el {{fechaContratacion}}, hasta por la cantidad de
+  {{montoOriginalContratado}}.
   <br /><br />
   Sobre el particular, me permito informarle que para la inscripción de
   contratos de Crédito simple el artículo 25 del Reglamento del Registro Público
@@ -75,53 +74,33 @@
 <h3
   style="
     font-family: Arial;
-    font-size: 17px;
-    font-weight: 100;
+    font-size: 12px;
     text-align: justify;
+    font-weight: 900;
     letter-spacing: 1px;
   "
 >
-  <strong>
-    Reglamento del Registro Público Único de Financiamientos y Obligaciones de
-    Entidades Federativas y Municipios
-  </strong>
+  Reglamento del Registro Público Único de Financiamientos y Obligaciones de
+  Entidades Federativas y Municipios
 </h3>
 
 <table
   id="data-table"
-  style="border-collapse: collapse; font-family: Arial; letter-spacing: 1px"
+  style="
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: 12px;
+    text-align: justify;
+    font-weight: 100;
+    letter-spacing: 1px;
+  "
 >
   <tbody>
     {%for x in comentarios%}
     <tr>
-      <td
-        style="
-          width: 15%;
-          vertical-align: -webkit-baseline-middle;
-          text-align: left;
-          letter-spacing: 1px;
-        "
-      >
-        {{x}}
-      </td>
-      <td
-        style="
-          width: 15%;
-          vertical-align: -webkit-baseline-middle;
-          text-align: center;
-          letter-spacing: 1px;
-        "
-      >
-        .- Artículo 25
-      </td>
-      <td
-        style="
-          width: 40%;
-          vertical-align: baseline;
-          text-align: justify;
-          letter-spacing: 1px;
-        "
-      >
+      <td style="width: 15%; vertical-align: -webkit-baseline-middle">{{x}}</td>
+      <td style="width: 5%; vertical-align: -webkit-baseline-middle"></td>
+      <td style="width: 40%; vertical-align: -webkit-baseline-middle">
         {{comentarios[x]}}
       </td>
     </tr>
@@ -130,7 +109,15 @@
   </tbody>
 </table>
 
-<p style="text-align: justify; font-family: Arial; letter-spacing: 1px">
+<p
+  style="
+    font-family: Arial;
+    font-size: 12px;
+    text-align: justify;
+    font-weight: 100;
+    letter-spacing: 1px;
+  "
+>
   En virtud de los argumentos precedentes y de conformidad con lo establecido en
   los artículos 49, 50 y 51 fracciones l, II, V, VIII, lX y Xl de la Ley de
   Disciplina Financiera de las Entidades Federativas y los Municipios; 3, 7, 16
@@ -154,9 +141,9 @@
     display: flex;
     justify-content: center;
     font-family: Arial;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 12px;
     text-align: center;
+    font-weight: 900;
     letter-spacing: 1px;
   "
   class="atte"

@@ -1,0 +1,762 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<h4
+  style="
+    text-align: center;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  "
+  class="header"
+>
+  REGISTRO PÚBLICO ÚNICO DE FINANCIAMIENTOS Y OBLIGACIONES DE ENTIDADES
+  <br />
+  FEDERATIVAS Y MUNICIPIOS
+  <br />
+  CONSTANCIA DE INSCRIPCIÓN
+</h4>
+
+<!-- CONSTANCIA DE INSCRIPCIÓN -->
+<div style="display: flex; justify-content: center; width: 100%">
+  <table id="data-table" style="width: 100%; border: 1px solid black">
+    <tbody
+      style="
+        letter-spacing: 1px;
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 10%;
+            border-right: 2px solid black;
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: 900;
+          "
+        >
+          OFICIO No.
+        </td>
+        <td style="width: 20%; border-right: 2px solid black">
+          {{oficioConstancia}}
+        </td>
+        <td
+          style="
+            width: 8%;
+            border-right: 2px solid black;
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: 900;
+          "
+        >
+          FECHA
+        </td>
+        <td style="width: 30%; letter-spacing: 1px">
+          <div id="current_date">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+            <script>
+              moment.locale("es");
+              const formattedDate = moment().format("LL");
+              document.getElementById("current_date").innerHTML = formattedDate;
+            </script>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SERVIDOR PÚBLICO -->
+<h3
+  style="
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 900;
+    text-align: justify;
+    letter-spacing: 1px;
+  "
+>
+  {{servidorPublico}} <br />
+  {{cargo}} <br />
+  {{organismo}}
+</h3>
+
+<!-- SOLICITUD -->
+<div style="display: flex; justify-content: center; width: 100%">
+  <h3
+    style="
+      font-family: Arial;
+      font-size: 12px;
+      text-align: justify;
+      font-weight: 900;
+
+      margin-bottom: 0;
+    "
+  >
+    SOLICITUD
+  </h3>
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <tbody
+      style="
+        letter-spacing: 1px;
+
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          OFICIO DE SOLICITUD
+        </td>
+        <td
+          style="
+            width: 25%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{oficioSolicitud}}
+        </td>
+        <td
+          style="
+            width: 25%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          FECHA DE SOLICITUD
+        </td>
+        <td
+          style="
+            width: 20%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{fechaSolicitud}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- DOCUMENTACIÓN REGISTRADA -->
+<div style="display: flex; justify-content: center; width: 100%">
+  <h3
+    style="
+      font-family: Arial;
+      font-size: 12px;
+      text-align: justify;
+      font-weight: 900;
+
+      margin-bottom: 0;
+    "
+  >
+    DOCUMENTACIÓN REGISTRADA
+  </h3>
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <tbody
+      style="
+        letter-spacing: 1px;
+
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 60%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          TIPO DE DOCUMENTO
+        </td>
+        <td
+          style="
+            width: 40%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{tipoDocumento}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 60%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          FECHA DE CONTRATACIÓN
+        </td>
+        <td
+          style="
+            width: 40%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{fechaContratacion}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <tbody
+      style="
+        letter-spacing: 1px;
+
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          CLAVE DE INSCRIPCIÓN
+        </td>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{claveInscripcion}}
+        </td>
+        <td
+          style="
+            width: 20%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          DE FECHA
+        </td>
+        <td
+          style="
+            width: 20%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{fechaClave}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- INFORMACIÓN DEL NUEVO FINANCIAMIENTO -->
+<div style="display: flex; justify-content: center; width: 100%">
+  <h3
+    style="
+      font-family: Arial;
+      font-size: 12px;
+      text-align: justify;
+      font-weight: 900;
+
+      margin-bottom: 0;
+    "
+  >
+    INFORMACIÓN DEL NUEVO FINANCIAMIENTO
+  </h3>
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <tbody
+      style="
+        letter-spacing: 1px;
+
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          ENTE PÚBLICO OBLIGADO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{entePublicoObligado}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          OBLIGADO SOLIDARIO/AVAL
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{obligadoSolidarioAval}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          INSTITUCIÓN FINANCIERA
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{institucionFinanciera}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          MONTO ORIGINAL CONTRATADO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{montoOriginalContratado}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          DESTINO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{destino}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <tbody
+      style="
+        letter-spacing: 1px;
+
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          PLAZO
+        </td>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{plazo}}
+        </td>
+        <td
+          style="
+            width: 20%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          AMORTIZACIONES
+        </td>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{amortizaciones}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          TASA DE INTERÉS
+        </td>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{tasaInteres}}
+        </td>
+        <td
+          style="
+            width: 20%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          TASA EFECTIVA
+        </td>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{tasaEfectiva}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <tbody
+      style="
+        letter-spacing: 1px;
+
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          MECANISMO O VEHÍCULO DE PAGO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{mecanismoVehiculoDePago}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          FUENTE DE PAGO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{fuentePago}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          GARANTÍA DE PAGO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{garantiaDePago}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 30%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          INSTRUMENTO DERIVADO
+        </td>
+        <td
+          style="
+            width: 70%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+          "
+        >
+          {{instrumentoDerivado}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- INFORMACIÓN DE(LOS) FINANCIAMIENTOS A REFINANCIAR -->
+<div style="display: flex; justify-content: center; width: 100%">
+  <h3
+    style="
+      font-family: Arial;
+      font-size: 12px;
+      text-align: justify;
+      font-weight: 900;
+      margin-bottom: 0;
+    "
+  >
+    INFORMACIÓN DE(LOS) FINANCIAMIENTOS A REFINANCIAR
+  </h3>
+  <table
+    id="data-table"
+    style="width: 100%; border: 1px solid black; border-collapse: collapse"
+  >
+    <thead
+      style="
+        letter-spacing: 1px;
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 900;
+      "
+    >
+      <tr>
+        <td
+          style="width: 20%; border: 1px solid black; border-collapse: collapse"
+        >
+          CLAVE DE INSCRIPCIÓN
+        </td>
+        <td
+          style="width: 20%; border: 1px solid black; border-collapse: collapse"
+        >
+          FECHA DE INSCRIPCIÓN
+        </td>
+        <td
+          style="width: 25%; border: 1px solid black; border-collapse: collapse"
+        >
+          MONTO ORIGINAL CONTRATADO
+        </td>
+        <td
+          style="width: 35%; border: 1px solid black; border-collapse: collapse"
+        >
+          INSTITUCIÓN FINANCIERA O EQUIVALENTE
+        </td>
+      </tr>
+    </thead>
+
+    <tbody
+      style="
+        letter-spacing: 1px;
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+      "
+    >
+      {%for x in financiamientosARefinanciar%}
+      <tr>
+        <td
+          style="width: 20%; border: 1px solid black; border-collapse: collapse"
+        >
+          {{x.claveInscripcion}}
+        </td>
+        <td
+          style="width: 20%; border: 1px solid black; border-collapse: collapse"
+        >
+          {{x.fechaInscripcion}}
+        </td>
+        <td
+          style="width: 25%; border: 1px solid black; border-collapse: collapse"
+        >
+          {{x.montoOriginalContratado}}
+        </td>
+        <td
+          style="width: 35%; border: 1px solid black; border-collapse: collapse"
+        >
+          {{x.institucionFinanciera}}
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<p
+  style="
+    text-align: justify;
+    font-family: Arial;
+    letter-spacing: 1px;
+    font-size: 10px;
+  "
+>
+  El presente fue inscrito en el Registro Público Único de Financiamientos y
+  Obligaciones de Entidades Federativas y Municipios, de conformidad con lo
+  establecido en los Artículos 49 y 50 de la Ley de Disciplina Financiera de las
+  Entidades Federativas y los Municipios; el Artículo 9º de la Ley de
+  Coordinación Fiscal; y los Artículos 3, 22, 25 y 30 del Reglamento del
+  Registro Público Único de Financiamientos y Obligaciones de Entidades
+  Federativas y Municipios. Lo anterior, con fundamento en el artículo 59 Bis,
+  fracciones III y XI del Reglamento Interior de la Secretaría de Hacienda y
+  Crédito Público y Segundo Transitorio del Decreto por el que se reforman,
+  adicionan y derogan diversas disposiciones del Reglamento Interior de la
+  Secretaría de Hacienda y Crédito Público, publicado en el Diario Oficial de la
+  Federación el 27 de septiembre de 2017.
+</p>
+
+<h3
+  style="
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+  "
+  class="atte"
+>
+  Atentamente <br />
+  {{cargoDirectorGeneral}} <br />
+  <br />
+  {{directorGeneral}} <br />
+</h3>
