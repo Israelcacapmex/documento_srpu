@@ -102,7 +102,7 @@ def documento(data):
     options={
         "enable-local-file-access": "",
         'page-size': 'Letter',
-        'margin-top': '0.8in',
+        'margin-top': '0.9in',
         'margin-right': '0.50in',
         'margin-bottom': '0.9in',
         'margin-left': '0.5in',

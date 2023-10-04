@@ -83,10 +83,10 @@ def documento(data):
         'margin-left': '0.5in',
         'encoding': "UTF-8",
         'javascript-delay' : '550',
+        'header-html': './templates/header.html',#Modifique aqui
         'footer-html': './templates/footer.html',#Modifique aqui
         'footer-right': "Página [page] de [topage]",
         'footer-font-size': "7",
-        'header-html': './templates/header.html',#Modifique aqui
         'no-outline': None}
     
 
