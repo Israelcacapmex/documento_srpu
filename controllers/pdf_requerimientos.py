@@ -13,10 +13,6 @@ from flask import (Blueprint, Flask, Response, make_response, render_template,
                    request, send_file)
 from flask_cors import CORS
 
-from django.http import HttpResponse
-from django.template.loader import get_template
-import pdfkit, os
-from django.conf import settings
 
 load_dotenv()
 
@@ -87,6 +83,7 @@ def documento(data):
         'margin-left': '0.5in',
         'encoding': "UTF-8",
         'javascript-delay' : '550',
+        'enable-internal-links': '',
         'header-html': './templates/header.html',#Modifique aqui
         'footer-html': './templates/footer.html',#Modifique aqui
         'footer-right': "Página [page] de [topage]",
