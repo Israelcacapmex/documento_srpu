@@ -21,6 +21,6 @@ RUN pip install --verbose --no-cache-dir -r requirements.txt
 RUN pip install Pillow
 RUN strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
 
-COPY . /app
+COPY . /controllers
 ENTRYPOINT [ "python" ]
 CMD [ "pdf_corto_plazo.py" ]
