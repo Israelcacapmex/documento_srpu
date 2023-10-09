@@ -1,17 +1,18 @@
+import copy
+import glob
+import io
+import json
+import os
+from datetime import datetime
+from os import remove
+from pathlib import Path
+
 import jinja2
 import pdfkit
-from datetime import datetime
-from flask import Flask, request, send_file, Response, Blueprint
-from flask_cors import CORS
-from pathlib import Path
-from os import remove
-import os
-import glob
-import json
-from pathlib import Path
-import copy
-import io 
 from dotenv import load_dotenv
+from flask import Blueprint, Flask, Response, request, send_file
+from flask_cors import CORS
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -114,6 +115,7 @@ def documento(data):
             "Content-type": "application/force-download"
         }
     ) 
+    
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7000, debug= True)
