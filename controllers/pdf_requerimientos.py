@@ -24,7 +24,6 @@ CORS(pdf_requerimientos)
 @pdf_requerimientos.route('/documento_srpu_requerimientos',  methods=['POST'])
 
 def get_data():
-    print(request)
     for pdf in glob.iglob('*.pdf', recursive=True):
          os.remove(pdf)
         

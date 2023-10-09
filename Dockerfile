@@ -23,4 +23,4 @@ RUN strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so
 
 COPY . /app
 ENTRYPOINT [ "python" ]
-CMD [ "pdf_srpu.py" ]
+CMD [ "pdf_corto_plazo.py" ]
