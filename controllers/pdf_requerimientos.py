@@ -73,9 +73,6 @@ def documento(data):
   
     output_text = template.render(info)
 
-    head = template.render('./templates/header.html')
-
-
     options={
         "enable-local-file-access": "",
         'page-size': 'Letter',
@@ -85,7 +82,7 @@ def documento(data):
         'margin-left': '0.5in',
         'encoding': "UTF-8",
         'javascript-delay' : '550',
-        'header-html': head, #Modifique aqui
+        'header-html': './templates/header.html',#Modifique aqui
         'footer-html': './templates/footer.html',#Modifique aqui
         'footer-right': "Página [page] de [topage]",
         'footer-font-size': "7",
