@@ -4,7 +4,11 @@ COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
-RUN apt-get update && apt-get install -y wkhtmltopdf
+# RUN apt-get update && apt-get install -y wkhtmltopdf
+RUN apt-get update && apt-get install -y wkhtmltopdf xvfb \
+    && echo '#!/bin/bash\nxvfb-run -a --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf -q $*' > /usr/bin/wkhtmltopdf.sh \
+    && chmod a+x /usr/bin/wkhtmltopdf.sh \
+    && ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
 RUN apt-get install -y libqt5webkit5
 RUN apt --fix-broken install
 RUN apt install -y binutils
