@@ -4,7 +4,12 @@ COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
-RUN apt-get install -y wkhtmltopdf
+
+RUN yum install -y xorg-x11-fonts-75dpi
+RUN yum install -y xorg-x11-fonts-Type1
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+RUN rpm -Uvh wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+
 RUN apt-get install -y libqt5webkit5
 RUN apt --fix-broken install
 RUN apt install -y binutils
