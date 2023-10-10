@@ -84,8 +84,8 @@ def documento(data):
         'encoding': "UTF-8",
         'javascript-delay' : '550',
         'enable-internal-links': '',
-        'header-html': '.\templates\header.html',#Modifique aqui
-        'footer-html': '.\templates\footer.html',#Modifique aqui
+        'header-html': './templates/header.html',#Modifique aqui
+        'footer-html': './templates/footer.html',#Modifique aqui
         'footer-right': "Página [page] de [topage]",
         'footer-font-size': "7",
         'no-outline': None}
