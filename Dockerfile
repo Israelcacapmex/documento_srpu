@@ -5,7 +5,7 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 # RUN apt-get update && apt-get install -y wkhtmltopdf
-RUN curl -L#o wk.tar.xz https://wkhtmltopdf.org/downloads.html/0.12/0.12.5/wkhtmltox-0.12.5-1.centos7.x86_64.rpm \
+RUN curl -L#o wk.tar.xz https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
     && tar xf wk.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
     && cp wkhtmltox/bin/wkhtmltoimage /usr/bin \
