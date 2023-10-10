@@ -4,7 +4,16 @@ COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
-RUN apt-get install -y wkhtmltopdf
+# RUN apt-get install -y wkhtmltopdf
+
+
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+RUN tar xvf wkhtmltox*.tar.xz
+RUN mv wkhtmltox/bin/wkhtmlto* /usr/bin
+RUN apt-get install -y openssl build-essential libssl-dev libxrender-dev git-core libx11-dev libxext-dev libfontconfig1-dev libfreetype6-dev fontconfig
+
+
+
 RUN apt-get install -y libqt5webkit5
 RUN apt --fix-broken install
 RUN apt install -y binutils
