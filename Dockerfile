@@ -5,10 +5,12 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 # RUN apt-get update && apt-get install -y wkhtmltopdf
-RUN apt-get update && apt-get install -y wkhtmltopdf xvfb \
-    && echo '#!/bin/bash\nxvfb-run -a --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf -q $*' > /usr/bin/wkhtmltopdf.sh \
-    && chmod a+x /usr/bin/wkhtmltopdf.sh \
-    && ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
+RUN curl -L#o wk.tar.xz https://wkhtmltopdf.org/downloads.html/0.12/0.12.5/wkhtmltox-0.12.5-1.centos7.x86_64.rpm \
+    && tar xf wk.tar.xz \
+    && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
+    && cp wkhtmltox/bin/wkhtmltoimage /usr/bin \
+    && rm wk.tar.xz \
+    && rm -r wkhtmltox
 RUN apt-get install -y libqt5webkit5
 RUN apt --fix-broken install
 RUN apt install -y binutils
