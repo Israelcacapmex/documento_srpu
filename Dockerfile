@@ -6,7 +6,6 @@ RUN apt-get update
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 # RUN apt-get install -y wkhtmltopdf
 
-RUN apt-get install wget && y
 RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
 RUN tar xvf wkhtmltox*.tar.xz
 RUN mv wkhtmltox/bin/wkhtmlto* /usr/bin
