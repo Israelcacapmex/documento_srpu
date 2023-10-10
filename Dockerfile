@@ -5,12 +5,7 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 # RUN apt-get update && apt-get install -y wkhtmltopdf
-RUN curl -L#o wk.tar.xz https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
-    && tar xf wk.tar.xz \
-    && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
-    && cp wkhtmltox/bin/wkhtmltoimage /usr/bin \
-    && rm wk.tar.xz \
-    && rm -r wkhtmltox
+RUN apk add --no-cache wkhtmltopdf ttf-dejavu
 RUN apt-get install -y libqt5webkit5
 RUN apt --fix-broken install
 RUN apt install -y binutils
