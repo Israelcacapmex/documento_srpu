@@ -5,8 +5,8 @@ COPY requirements.txt /app
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 
-RUN apt install -y xorg-x11-fonts-75dpi
-RUN apt install -y xorg-x11-fonts-Type1
+RUN apt-get install -y xorg-x11-fonts-75dpi
+RUN apt-get install -y xorg-x11-fonts-Type1
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
 RUN rpm -Uvh wkhtmltox-0.12.6-1.centos7.x86_64.rpm
 
