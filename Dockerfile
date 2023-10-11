@@ -5,7 +5,7 @@ COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
 # RUN pip install -r requirements.txt
 
-RUN apt-get update && apt-get install -y build-essential cmake libssl-dev libfontconfig1 libxrender1 libjpeg62-turbo xorg-dev libx11-dev libxcb1-dev libxtst6 libxext6 libfreetype6 libxml2 libicu-dev libxslt1-dev
+RUN apt-get update && apt-get install -y wget build-essential cmake libssl-dev libfontconfig1 libxrender1 libjpeg62-turbo xorg-dev libx11-dev libxcb1-dev libxtst6 libxext6 libfreetype6 libxml2 libicu-dev libxslt1-dev
 
 
 # Download and install wkhtmltopdf with patched Qt
