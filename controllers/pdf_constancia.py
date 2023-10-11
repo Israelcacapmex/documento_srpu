@@ -14,6 +14,9 @@ from flask_cors import CORS
 
 load_dotenv()
 
+header_path = os.path.abspath('./templates/header.html')
+footer_path = os.path.abspath('./templates/footer.html')
+
 pdf_constancia = Blueprint('pdf_constancia', __name__)
 Variable_entorno = os.environ.get('Variable_entorno')
 debug_mode = os.environ.get('DEBUG')
@@ -108,8 +111,8 @@ def documento(data):
         'margin-left': '0.5in',
         'encoding': "UTF-8",
         'javascript-delay' : '550',
-        'header-html': './templates/header.html',#Modifique aqui
-        'footer-html':'./templates/footer.html',#Modifique aqui
+        'header-html': header_path, #Modifique aqui
+        'footer-html': footer_path, #Modifique aqui
         'footer-right': "Página [page] de [topage]",
         'footer-font-size': "7",
         'no-outline': None
