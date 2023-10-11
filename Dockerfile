@@ -16,7 +16,6 @@ RUN pip install --upgrade pip
 RUN pip install python-dotenv
 RUN pip install PyJWT
 RUN apt-get install -y swig
-RUN pip install --upgrade Werkzeug
 RUN pip install --no-cache-dir setuptools
 RUN pip install --verbose --no-cache-dir -r requirements.txt
 RUN pip install Pillow
