@@ -1,7 +1,10 @@
 FROM python:3.9.10-slim-buster
-RUN pip install Werkzeug==1.0.1
-COPY . /app
 WORKDIR /app
+COPY requirements.txt /app
+
+RUN python -m venv /venv
+ENV PATH="/venv/bin:$PATH"
+RUN pip install Werkzeug==1.0.1
 # We copy just the requirements.txt first to leverage Docker cache
 RUN apt-get update 
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
