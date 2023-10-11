@@ -6,25 +6,17 @@ COPY requirements.txt /app
 # RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 # RUN apt-get install -y wkhtmltopdf
 
-RUN apt update
-RUN apt install xfonts-75dpi xfonts-base gvfs colord glew-utils libvisual-0.4-plugins gstreamer1.0-tools opus-tools qt5-image-formats-plugins qtwayland5 qt5-qmltooling-plugins librsvg2-bin lm-sensors 
-ADD https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb /bin/sh
-RUN dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb
-RUN cp /usr/local/bin/wkhtmltopdf /usr/bin/
-RUN cp /usr/local/bin/wkhtmltoimage /usr/bin/
-
-
 # RUN apt-get install -y libqt5webkit5
 
-# RUN apt-get update && apt-get install -y \
-#     xz-utils \
-#     libfontconfig1 \
-#     libxrender1 \
-#     wget \
-#     gdebi-core 
+RUN apt-get update && apt-get install -y \
+    xz-utils \
+    libfontconfig1 \
+    libxrender1 \
+    wget \
+    gdebi-core 
 # RUN apt-get install libjpeg62-turbo-dev
-# RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
-# RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
 
 RUN apt --fix-broken install
 RUN apt install -y binutils
