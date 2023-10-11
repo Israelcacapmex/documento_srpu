@@ -6,7 +6,7 @@ RUN apt-get update
 # RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 RUN apt-get install -y wkhtmltopdf
 # RUN apt-get install -y libqt5webkit5
-# RUN apt --fix-broken install
+RUN apt --fix-missing
 RUN apt install -y binutils
 RUN apt-get install -y build-essential python3-dev
 RUN pip install pdfkit
