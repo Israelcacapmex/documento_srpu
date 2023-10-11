@@ -13,7 +13,7 @@ COPY requirements.txt /app
 
 # RUN apt-get install -y libqt5webkit5
 
-RUN apt-get update && apt-get upgrade && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     xz-utils \
     libfontconfig1 \
     libxrender1 \
