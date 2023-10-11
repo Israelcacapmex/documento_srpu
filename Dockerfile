@@ -13,13 +13,13 @@ COPY requirements.txt /app
 
 # RUN apt-get install -y libqt5webkit5
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && sudo apt-get upgrade && apt-get install -y \
     xz-utils \
     libfontconfig1 \
     libxrender1 \
     wget \
-    gdebi-core \
-    libjpeg-turbo8
+    gdebi-core 
+RUN apt-get install libjpeg-turbo8
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
 RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
 
