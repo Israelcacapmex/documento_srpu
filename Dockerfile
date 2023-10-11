@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     wget \
     gdebi-core 
-RUN apt-get install libjpeg62-dev
+RUN apt -y install libjpeg62-turbo-dev
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
 RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
 
