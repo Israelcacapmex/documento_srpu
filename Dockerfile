@@ -4,9 +4,9 @@ COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
 RUN apt-get update 
 # RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
-RUN apt-get install -y wkhtmltopdf
+# RUN apt --fix-missing
+RUN apt-get install -y wkhtmltopdf && --fix-missing
 # RUN apt-get install -y libqt5webkit5
-RUN apt --fix-missing
 RUN apt install -y binutils
 RUN apt-get install -y build-essential python3-dev
 RUN pip install pdfkit
