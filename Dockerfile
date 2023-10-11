@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     wget \
     gdebi-core 
-RUN yum -y install rpm rpm2cpio
+RUN apt -y install rpm rpm2cpio
 RUN apt-get update && apt-get install -y libjpeg62-turbo-dev
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb && \
     rpm -Uvh wkhtmltox_0.12.6-1.focal_amd64.deb
