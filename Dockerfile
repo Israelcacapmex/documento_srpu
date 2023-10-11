@@ -2,16 +2,26 @@ FROM python:3.9.10-slim-buster
 WORKDIR /app
 COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
-RUN apt-get update 
-RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
-RUN apt-get install -y wkhtmltopdf
+# RUN apt-get update 
+# RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
+# RUN apt-get install -y wkhtmltopdf
 
 # ADD https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz /bin/sh
 # RUN tar xvf wkhtmltox*.tar.xz
 # RUN mv wkhtmltox/bin/wkhtmlto* /usr/bin
 
 
-RUN apt-get install -y libqt5webkit5
+# RUN apt-get install -y libqt5webkit5
+
+RUN apt-get update && apt-get install -y \
+    xz-utils \
+    libfontconfig1 \
+    libxrender1 \
+    wget \
+    gdebi-core
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
+
 RUN apt --fix-broken install
 RUN apt install -y binutils
 RUN apt-get install -y build-essential python3-dev
