@@ -10,6 +10,6 @@ services:
     volumes:
       - .:/app
     environment:
-      - FLASK_APP=app.py flask run
+      - FLASK_APP=app.py
       - FLASK_ENV=development
       - Variable_entorno=/usr/bin/wkhtmltopdf
