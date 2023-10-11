@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     libxrender1 \
     wget \
-    gdebi-core 
+    gdebi-core \
+    rpm
 RUN apt-get update && apt-get install -y libjpeg62-turbo-dev
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb && \
     rpm -Uvh wkhtmltox_0.12.6-1.focal_amd64.deb
