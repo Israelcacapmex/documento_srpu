@@ -3,7 +3,7 @@ WORKDIR /app
 COPY requirements.txt /app
 
 # We copy just the requirements.txt first to leverage Docker cache
-RUN pip install -r requirements.txt
+# RUN pip install -r requirements.txt
 
 RUN apt-get update && apt-get install -y \
     libxrender1 \
