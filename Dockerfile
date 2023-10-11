@@ -14,11 +14,11 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     wget \
     gdebi-core 
-RUN apt -y install libjpeg62-turbo-dev
+RUN apt-get update && apt-get install -y libjpeg-turbo8
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
-RUN apt --fix-broken install
 RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
 
+RUN apt --fix-broken install
 RUN apt install -y binutils
 RUN apt-get install -y build-essential python3-dev
 RUN pip install pdfkit
