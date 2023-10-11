@@ -121,7 +121,7 @@ def documento(data):
 
   
     config = pdfkit.configuration(wkhtmltopdf=Variable_entorno)
-    pdf_file = pdfkit.from_string(output_text, 'sgcm_constancia.pdf', #agregue aqui la prueba
+    pdfkit.from_file(output_text, 'sgcm_constancia.pdf', #agregue aqui la prueba
                                   configuration=config, 
                                   options= options,
                                       ) 
