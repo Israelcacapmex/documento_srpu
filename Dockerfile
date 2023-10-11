@@ -1,9 +1,9 @@
 FROM python:3.9.10-slim-buster
+RUN pip install Werkzeug==1.0.1
+COPY . /app
 WORKDIR /app
-COPY requirements.txt /app
 # We copy just the requirements.txt first to leverage Docker cache
 RUN apt-get update 
-RUN pip install Werkzeug==1.0.1
 RUN apt-get install -y libxrender1 libfontconfig1 libjpeg62-turbo libxtst6
 RUN apt-get install -y wkhtmltopdf
 RUN apt-get install -y libqt5webkit5
