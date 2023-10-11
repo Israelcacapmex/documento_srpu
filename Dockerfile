@@ -15,8 +15,10 @@ RUN apt-get update && apt-get install -y \
     wget \
     gdebi-core 
 RUN apt -y install rpm rpm2cpio
+RUN wget alien
 RUN apt-get update && apt-get install -y libjpeg62-turbo-dev
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb && \
+    alien -r -c wkhtmltox_0.12.6-1.focal_amd64.deb && \
     rpm -Uvh wkhtmltox_0.12.6-1.focal_amd64.deb
 # RUN gdebi --n wkhtmltox_0.12.6-1.focal_amd64.deb
 
