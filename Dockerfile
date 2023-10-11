@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y wget build-essential cmake libssl-dev l
 
 
 # Download and install wkhtmltopdf with patched Qt
-RUN wget https://github.com/wkhtmltopdf/packaging/archive/master.tar.gz -O /usr/bin/wkhtmltopdf
-RUN chmod +x /usr/bin/wkhtmltopdf 
+RUN wget https://example.com/path/to/patched/wkhtmltopdf -O /usr/local/bin/wkhtmltopdf
+RUN chmod +x /usr/local/bin/wkhtmltopdf 
 # WORKDIR /app/packaging-master
 # RUN bash build.py
 
